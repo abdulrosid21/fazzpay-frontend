@@ -1,22 +1,13 @@
-import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement } from "../redux/actions/counter";
 import Navbar from "@/components/navbar";
+import Head from "next/head";
 import Image from "next/image";
 
 export default function Home() {
-  const count = useSelector((state) => state.counter);
-  const dispatch = useDispatch();
-
-  const handleIncrement = () => {
-    dispatch(increment());
-  };
-
-  const handleDecrement = () => {
-    dispatch(decrement());
-  };
-
   return (
     <>
+      <Head>
+        <title>Fazzpay</title>
+      </Head>
       <Navbar />
       <div className="h-full w-screen bg-[#E5E5E5]">
         {/* <h1>Count: {count}</h1>
