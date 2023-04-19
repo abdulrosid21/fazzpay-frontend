@@ -10,7 +10,7 @@ export default function Brand({ variant }) {
       }`}
       onClick={() => router.push("/")}
     >
-      FazzPay
+      Fazzpay
     </div>
   );
 }

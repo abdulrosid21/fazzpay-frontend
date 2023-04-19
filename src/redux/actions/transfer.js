@@ -4,8 +4,8 @@ import moment from "moment";
 
 export const createTransfer = createAsyncThunk(
   "transfer/createTransfer",
-  async (data) => {
-    const response = await axiosClient.post("/transaction/transfer", data);
+  async (payload) => {
+    const response = await axiosClient.post("/transaction/transfer", payload);
     return response.data;
   }
 );
@@ -20,12 +20,12 @@ const transferSlice = createSlice({
     loadingPage: true,
   },
   reducers: {
-    // loadingPage: (state) => {
-    //   state.loadingPage = true;
-    // },
-    // finishLoadingPage: (state) => {
-    //   state.loadingPage = false;
-    // },
+    loadingPage: (state) => {
+      state.loadingPage = true;
+    },
+    finishLoadingPage: (state) => {
+      state.loadingPage = false;
+    },
     detailUser: (state, action) => {
       state.user = action.payload;
     },
@@ -43,15 +43,15 @@ const transferSlice = createSlice({
     builder
       .addCase(createTransfer.pending, (state) => {
         state.isError = false;
-        // state.loadingPage = true;
+        state.loadingPage = true;
       })
       .addCase(createTransfer.fulfilled, (state) => {
         state.isError = false;
-        // state.loadingPage = false;
+        state.loadingPage = false;
       })
       .addCase(createTransfer.rejected, (state) => {
         state.isError = true;
-        // state.loadingPage = false;
+        state.loadingPage = false;
       });
   },
 });

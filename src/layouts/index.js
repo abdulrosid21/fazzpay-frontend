@@ -7,7 +7,7 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { Icon } from "@iconify/react";
 import { useDispatch, useSelector } from "react-redux";
-import { modal } from "../redux/actions/topup";
+import { setModal } from "../redux/actions/topup";
 import axiosClient from "../utils/axios";
 import { getDataUserById } from "../redux/actions/user";
 import { getDataDashboard } from "../redux/actions/dashboard";
@@ -40,7 +40,7 @@ export default function Layout({ title, page, children }) {
   }, [dispatch, title]);
 
   const handleClose = () => {
-    dispatch(modal(false));
+    dispatch(setModal(false));
     setAmount({ amount: "" });
   };
 
@@ -91,7 +91,7 @@ export default function Layout({ title, page, children }) {
   return token ? (
     <>
       <Head>
-        <title>FazzPay - {title} </title>
+        <title>Fazzpay - {title} </title>
       </Head>
 
       {/* MODAL TOPUP */}
@@ -100,7 +100,7 @@ export default function Layout({ title, page, children }) {
           modalTopUp ? "fixed" : "hidden"
         } w-full h-full bg-[rgba(0,0,0,0.4)] z-50`}
       >
-        <div className="absolute left-0 right-0 top-0 bottom-0 m-auto w-3/4 h-fit bg-white xl:w-[40%] px-6 xl:px-9 py-8 xl:py-10 rounded-3xl">
+        <div className="absolute left-0 right-0 top-0 bottom-0 m-auto w-3/4 h-fit bg-white lg:w-[40%] px-6 lg:px-9 py-8 lg:py-10 rounded-3xl">
           <div className="flex justify-between">
             <h4 className="text-dark text-lg font-semibold">Topup</h4>
             <Icon
@@ -111,10 +111,10 @@ export default function Layout({ title, page, children }) {
           </div>
 
           <p className="text-[#3A3D4299] mt-5">
-            Enter the amount of money, and click <br /> submit
+            Enter the amount of money, and click submit
           </p>
 
-          <form action="" className="mt-10" onSubmit={createTopUp}>
+          <form action="" className="mt-7 grid gap-5" onSubmit={createTopUp}>
             <input
               type="number"
               min={10000}
@@ -122,11 +122,12 @@ export default function Layout({ title, page, children }) {
               name="amount"
               value={amount.amount}
               onChange={changeInputTopUp}
+              placeholder="0"
             />
 
             <div className="text-end">
               <button
-                className="bg-primary text-white text-lg font-semibold px-14 py-3 rounded-lg mt-20"
+                className="bg-primary text-white text-lg font-semibold py-3 rounded-lg mt-20 px-5"
                 type="submit"
               >
                 {loading ? (
@@ -257,16 +258,16 @@ export default function Layout({ title, page, children }) {
           </div>
         </div>
       ) : (
-        <div className="px-6 xl:px-40 mt-10 flex mb-20 gap-x-5">
+        <div className="px-6 lg:px-40 mt-10 flex mb-20 gap-x-5">
           <Aside page={page} />
           <main className="w-full">{children}</main>
         </div>
       )} */}
-      <div className="px-6 xl:px-40 mt-10 flex mb-20 gap-x-5">
+      <div className="px-6 lg:px-40 mt-10 flex mb-20 gap-x-5">
         <Aside page={page} />
         <main className="w-full">{children}</main>
       </div>
-      <div className="mt-5">
+      <div className="mt-8">
         <Footer />
       </div>
     </>

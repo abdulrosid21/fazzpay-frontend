@@ -1,9 +1,9 @@
 import React from "react";
-import Layout from "layout";
-import History from "components/card/History";
+import Layout from "../../layouts";
+import History from "../../components/card/History";
 import { Icon } from "@iconify/react";
 import Cookies from "next-cookies"; // digunakan untuk kebutuhan mengambil data untuk server side
-import axiosServer from "utils/axiosServer";
+import axiosServer from "../../utils/axiosServer";
 import qs from "query-string";
 import { useRouter } from "next/router";
 
@@ -17,9 +17,9 @@ export default function TransactionHistory(props) {
     }
     if (Object.keys(query).length > 0) {
       query = qs.stringify(query);
-      router.push(`/dashboard/transaction-history?${query}`);
+      router.push(`/dashboard/transactionhistory?${query}`);
     } else {
-      router.push("/dashboard/transaction-history");
+      router.push("/dashboard/transactionhistory");
     }
   };
 
@@ -38,7 +38,7 @@ export default function TransactionHistory(props) {
   return (
     <div>
       <Layout title="Transaction History" page={"Dashboard"}>
-        <div className="bg-white rounded-3xl shadow-lg px-7 py-7">
+        <div className="bg-white rounded-3xl shadow-lg px-7 py-7 min-h-screen">
           <div className="flex justify-between items-center">
             <h2 className="text-lg text-dark font-semibold">
               Transaction History
@@ -64,7 +64,7 @@ export default function TransactionHistory(props) {
             ))}
           </div>
 
-          <div className="flex justify-center mt-14 gap-x-4">
+          <div className="flex justify-center mx-auto gap-x-4">
             <button
               className={`bg-primary text-white rounded-lg py-1 px-3 disabled:opacity-50 disabled:cursor-not-allowed`}
               onClick={handlePrevPage}

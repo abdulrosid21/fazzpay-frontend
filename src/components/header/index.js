@@ -48,11 +48,12 @@ export default function Header() {
 
   return (
     <>
-      <div className="flex justify-between items-center text-dark bg-white p-6 xl:px-36 xl:py-8 rounded-b-3xl shadow-md relative">
+      <div className="flex justify-between items-center text-dark bg-white p-6 lg:px-36 lg:py-8 rounded-b-3xl shadow-md relative">
         <Brand variant={"blue"} />
         <div className="flex items-center">
-          <div className="w-8 h-8 xl:w-14 xl:h-14 rounded-xl mr-3">
+          <div className="w-8 h-8 lg:w-14 lg:h-14 rounded-xl mr-3 flex bg-white">
             <Image
+              className="bg-cover bg-center rounded-xl"
               src={
                 dataUser.image
                   ? process.env.URL_CLOUDINARY + dataUser.image
@@ -64,22 +65,22 @@ export default function Header() {
             />
           </div>
           <div>
-            <p className="text-sm xl:text-lg font-semibold">
+            <p className="text-sm lg:text-lg font-semibold">
               {dataUser.firstName + " " + dataUser.lastName}
             </p>
-            <p className="opacity-90 text-xs xl:text-sm">
+            <p className="opacity-90 text-xs lg:text-sm">
               {dataUser.noTelp ? dataUser.noTelp : "Phone Not Set"}
             </p>
           </div>
           <button
-            className={`xl:hidden ml-5`}
+            className={`lg:hidden ml-5`}
             onClick={() => setHamburger(!hamburger)}
           >
             <FiChevronDown />
           </button>
           <Icon
             icon={"codicon:bell"}
-            className={"text-2xl ml-6 hidden xl:block"}
+            className={"text-2xl ml-6 hidden lg:block"}
           />
         </div>
       </div>

@@ -18,7 +18,7 @@ import {
 import { Bar } from "react-chartjs-2";
 import { useState } from "react";
 import History from "../../components/card/History";
-import { modal } from "../../redux/actions/topup";
+import { setModal } from "../../redux/actions/topup";
 
 ChartJS.register(
   CategoryScale,
@@ -92,7 +92,7 @@ export default function Home() {
   };
 
   return (
-    <Layout title="Home" page={"Dashboard"}>
+    <Layout title="Dashboard" page={"Dashboard"}>
       {user.isLoading || dashboard.isLoading || history.isLoading ? (
         <div className="h-[550px] flex justify-center items-center">
           <div role="status">
@@ -117,45 +117,45 @@ export default function Home() {
         </div>
       ) : (
         <>
-          <div className="bg-primary flex justify-between p-5 xl:p-7 rounded-lg">
+          <div className="bg-primary flex justify-between p-5 lg:p-7 rounded-lg">
             <div>
-              <p className="text-[#E0E0E0] text-sm xl:text-lg mb-2">Balance</p>
-              <p className="font-semibold text-2xl xl:text-4xl text-white mb-4">
+              <p className="text-[#E0E0E0] text-sm lg:text-lg mb-2">Balance</p>
+              <p className="font-semibold text-2xl lg:text-4xl text-white mb-4">
                 {`Rp${Number(dataUser.balance).toLocaleString()}`}
               </p>
-              <p className="text-[#DFDCDC] text-xs xl:text-sm">
+              <p className="text-[#DFDCDC] text-xs lg:text-sm">
                 {dataUser.noTelp}
               </p>
             </div>
-            <div className="grid gap-y-2 xl:gap-y-3">
+            <div className="grid gap-y-2 lg:gap-y-3">
               <button
-                className="flex items-center gap-x-2 bg-[#FFFFFF33] border border-white rounded-lg px-4 xl:px-7 py-3 xl:py-4"
+                className="flex items-center gap-x-2 bg-[#FFFFFF33] border border-white rounded-lg px-4 lg:px-7 py-3 lg:py-4"
                 onClick={() => router.push("/transfer")}
               >
                 <Icon
                   icon={"akar-icons:arrow-up"}
-                  className="text-[#B5B0ED] text-lg xl:text-2xl"
+                  className="text-[#B5B0ED] text-lg lg:text-2xl"
                 />
-                <p className="text-white font-semibold text-sm xl:text-lg">
+                <p className="text-white font-semibold text-sm lg:text-lg">
                   Transfer
                 </p>
               </button>
               <button
-                className="flex items-center gap-x-2 bg-[#FFFFFF33] border border-white rounded-lg px-4 xl:px-7 py-3 xl:py-4"
-                onClick={() => dispatch(modal(true))}
+                className="flex items-center gap-x-2 bg-[#FFFFFF33] border border-white rounded-lg px-4 lg:px-7 py-3 lg:py-4"
+                onClick={() => dispatch(setModal(true))}
               >
                 <Icon
                   icon={"akar-icons:plus"}
-                  className="text-[#B5B0ED] text-lg xl:text-2xl"
+                  className="text-[#B5B0ED] text-lg lg:text-2xl"
                 />
-                <p className="text-white font-semibold text-sm xl:text-lg">
+                <p className="text-white font-semibold text-sm lg:text-lg">
                   Top Up
                 </p>
               </button>
             </div>
           </div>
 
-          <div className="flex flex-col xl:flex-row mt-5 xl:gap-x-5">
+          <div className="flex flex-col lg:flex-row mt-5 lg:gap-x-5">
             <div className="basis-[55%] bg-white rounded-3xl p-7">
               <div className="flex justify-between items-center">
                 <div>
@@ -189,7 +189,7 @@ export default function Home() {
                 </p>
                 <button
                   className="text-primary text-sm font-medium"
-                  onClick={() => router.push("/home/transaction-history")}
+                  onClick={() => router.push("/dashboard/transactionhistory")}
                 >
                   See all
                 </button>

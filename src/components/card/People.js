@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { detailUser } from "stores/action/transfer";
+import { detailUser } from "../../redux/actions/transfer";
 
 export default function People({ data, navigate }) {
   const router = useRouter();
@@ -26,7 +26,7 @@ export default function People({ data, navigate }) {
           src={
             data.image
               ? process.env.URL_CLOUDINARY + data.image
-              : "/default-profile.png"
+              : "/images/default-profile.png"
           }
           width={1}
           height={1}

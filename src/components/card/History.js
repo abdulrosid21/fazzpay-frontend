@@ -5,12 +5,13 @@ export default function History({ data }) {
   return (
     <div className="flex justify-between items-center">
       <div className="flex items-center gap-x-3">
-        <div className="w-14 h-14">
+        <div className="w-14 h-14 flex">
           <Image
+            className="justify-center mt-auto"
             src={
               data.image
                 ? process.env.URL_CLOUDINARY + data.image
-                : "/default-profile.png"
+                : "/images/default-profile.png"
             }
             width={1}
             height={1}

@@ -11,16 +11,19 @@ export const getDataUserById = createAsyncThunk(
 
 export const updateImage = createAsyncThunk(
   "user/updateImage",
-  async ({ userId, data }) => {
-    const response = await axiosClient.patch(`user/image/${userId}`, data);
+  async (payload) => {
+    const response = await axiosClient.patch(
+      `user/image/${payload.userId}`,
+      payload.image
+    );
     return response.data.msg;
   }
 );
 
 export const updatePassword = createAsyncThunk(
   "user/updatePassword",
-  async ({ userId, data }) => {
-    const response = await axiosClient.patch(`user/password/${userId}`, data);
+  async ({ userId, form }) => {
+    const response = await axiosClient.patch(`user/password/${userId}`, form);
     return response.data.msg;
   }
 );
@@ -30,18 +33,21 @@ export const checkPin = createAsyncThunk("user/checkPin", async (pin) => {
   return response.data.msg;
 });
 
-export const updatePin = createAsyncThunk(
-  "user/updatePin",
-  async ({ userId, pin }) => {
-    const response = await axiosClient.patch(`user/pin/${userId}`, pin);
-    return response.data.msg;
-  }
-);
+export const updatePin = createAsyncThunk("user/updatePin", async (payload) => {
+  const response = await axiosClient.patch(
+    `user/pin/${payload.userId}`,
+    payload.data
+  );
+  return response.data.msg;
+});
 
 export const updatePhone = createAsyncThunk(
   "user/updatePhone",
-  async ({ userId, phone }) => {
-    const response = await axiosClient.patch(`user/profile/${userId}`, phone);
+  async (payload) => {
+    const response = await axiosClient.patch(
+      `user/profile/${payload.userId}`,
+      payload.form
+    );
     return response.data.msg;
   }
 );
@@ -110,12 +116,12 @@ const userSlice = createSlice({
       .addCase(checkPin.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = false;
-        state.message = action.payload.data.msg;
+        state.message = action.payload;
       })
       .addCase(checkPin.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
-        state.message = action.payload.response.data.msg;
+        state.message = action.error.message;
       })
       .addCase(updatePin.pending, (state) => {
         state.isLoading = true;
@@ -125,12 +131,12 @@ const userSlice = createSlice({
       .addCase(updatePin.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = false;
-        state.message = action.payload.data.msg;
+        state.message = action.payload;
       })
       .addCase(updatePin.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
-        state.message = action.payload.response.data.msg;
+        state.message = action.error.message;
       })
       .addCase(updatePhone.pending, (state) => {
         state.isLoading = true;
@@ -140,12 +146,12 @@ const userSlice = createSlice({
       .addCase(updatePhone.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = false;
-        state.message = action.payload.data.msg;
+        state.message = action.payload;
       })
       .addCase(updatePhone.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
-        state.message = action.payload.response.data.msg;
+        state.message = action.error.message;
       });
   },
 });
