@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FiChevronDown } from "react-icons/fi";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { modal } from "../../redux/actions/topup";
+import { setModal } from "../../redux/actions/topup";
 import axiosClient from "../../utils/axiosServer";
 import Cookies from "js-cookie";
 import { loadingPage } from "../../redux/actions/transfer";
@@ -15,20 +15,19 @@ export default function Header() {
   const dispatch = useDispatch();
   const router = useRouter();
   const dataUser = useSelector((state) => state.user.data);
-  console.log(dataUser);
   const [hamburger, setHamburger] = useState(false);
 
   const handleClick = (content) => {
     switch (content) {
       case "Dashboard":
-        router.push("/home");
+        router.push("/dashboard");
         break;
       case "Transfer":
         dispatch(loadingPage());
         router.push("/transfer");
         break;
       case "Top Up":
-        dispatch(modal(true));
+        dispatch(setModal(true));
         break;
       case "Profile":
         router.push("/profile");

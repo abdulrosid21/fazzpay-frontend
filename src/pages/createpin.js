@@ -6,8 +6,11 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 import axios from "../utils/axios";
 import { useRouter } from "next/router";
+import { getDataUserById } from "@/redux/actions/user";
+import { useDispatch } from "react-redux";
 
 export default function CreatePin() {
+  const dispatch = useDispatch();
   const router = useRouter();
   const userId = Cookies.get("userId");
   const [isPin, setIsPin] = useState(false);
@@ -55,10 +58,10 @@ export default function CreatePin() {
       const result = await axios.patch(`user/pin/${userId}`, {
         pin: allPin,
       });
-      console.log(result);
       setLoading(false);
       setIsPin(true);
       Cookies.set("pin", allPin);
+      dispatch(getDataUserById(userId));
     } catch (error) {
       console.log(error);
       setLoading(false);

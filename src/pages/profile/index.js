@@ -15,7 +15,6 @@ export default function Profile() {
   const [newImage, setNewImage] = useState({});
   const [imagePreview, setImagePreview] = useState("");
   const lengthImage = Object.keys(newImage).length;
-  console.log(newImage);
 
   const handleInputImage = (e) => {
     const { name, files } = e.target;

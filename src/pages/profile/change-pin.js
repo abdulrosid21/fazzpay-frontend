@@ -14,8 +14,6 @@ export default function ChangePin() {
   const user = useSelector((state) => state.user);
   const [toast, setToast] = useState(false);
   const [isPin, setIsPin] = useState(false);
-  console.log(toast);
-
   const [pin, setPin] = useState({
     pin1: "",
     pin2: "",

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Auth from "layout/auth";
-import Input from "../components/auth/Input";
-import Button from "../components/auth/Button";
+import Auth from "../../layouts/auth";
+import Input from "../../components/auth/input";
+import Button from "../../components/auth/button";
 import axiosClient from "../../utils/axios";
 import { useRouter } from "next/router";
 
@@ -53,7 +53,7 @@ export default function ForgotPassword() {
         confirmPassword: "",
       });
     } else {
-      router.push("/login");
+      router.push("/signin");
     }
   };
 

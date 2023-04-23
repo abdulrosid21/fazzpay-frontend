@@ -45,7 +45,6 @@ export default function Layout({ title, page, children }) {
   };
 
   const changeInputTopUp = (e) => {
-    console.log(amount);
     setAmount({ ...amount, [e.target.name]: e.target.value });
   };
 
@@ -55,7 +54,6 @@ export default function Layout({ title, page, children }) {
       setIsError(false);
       setLoading(true);
       const result = await axiosClient.post("/transaction/top-up", amount);
-      console.log(result);
       setMessage(result.data.msg);
       setLoading(false);
       handleClose();

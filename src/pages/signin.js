@@ -36,7 +36,6 @@ export default function Login() {
       setAuthData(result.data.data);
       const dataResult = result.data.data;
 
-      console.log(dataResult);
       Cookies.set("token", dataResult.token);
       Cookies.set("userId", dataResult.id);
       dispatch(getDataUserById(dataResult.id));
@@ -44,7 +43,6 @@ export default function Login() {
       dispatch(getDataHistory());
       setToast(true);
     } catch (error) {
-      console.log(error);
       setLoading(false);
       setMessage(error.response.data.msg);
       setIsError(true);
