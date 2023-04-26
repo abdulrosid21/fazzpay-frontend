@@ -86,13 +86,13 @@ function Navbar() {
             <>
               <button
                 className="bg-white text-primary border-primary shadow border-2 w-28 py-2 font-semibold rounded-xl"
-                onClick={() => router.push("/login")}
+                onClick={() => router.push("/signin")}
               >
                 Login
               </button>
               <button
                 className="bg-primary text-white shadow w-28 py-2 font-semibold rounded-xl"
-                onClick={() => router.push("/register")}
+                onClick={() => router.push("/signup")}
               >
                 Register
               </button>
