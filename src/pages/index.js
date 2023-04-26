@@ -1,3 +1,4 @@
+import Landingpage from "@/components/footer/landingpage";
 import Navbar from "@/components/navbar";
 import Head from "next/head";
 import Image from "next/image";
@@ -10,13 +11,6 @@ export default function Home() {
       </Head>
       <Navbar />
       <div className="h-full w-screen bg-[#E5E5E5]">
-        {/* <h1>Count: {count}</h1>
-        <button className="w-20 h-7 bg-red-500" onClick={handleIncrement}>
-          +
-        </button>
-        <button className="w-20 h-7 bg-blue-400" onClick={handleDecrement}>
-          -
-        </button> */}
         <div className="w-4/5 grid grid-cols-2 gap-3 justify-center mx-auto">
           <div className="flex">
             <div className="justify-start">
@@ -76,7 +70,7 @@ export default function Home() {
           <div className="my-auto">
             <Image
               className="object-cover"
-              src={"/images/drop box.png"}
+              src={"/images/dropbox.png"}
               height={40}
               width={100}
               alt="drop box"
@@ -94,7 +88,7 @@ export default function Home() {
           <div className="my-auto">
             <Image
               className="object-cover"
-              src={"/images/air bnd.png"}
+              src={"/images/airbnd.png"}
               height={40}
               width={100}
               alt="air bnd"
@@ -236,7 +230,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="w-screen h-screen relative">
+      <div className="w-screen h-screen relative sm:pb-10">
         <div className="w-4/5 h-full flex flex-col justify-evenly mx-auto">
           <h1 className="text-5xl font-bold text-center text-[#3A3D42]">
             {" "}
@@ -248,8 +242,25 @@ export default function Home() {
             free <br /> to use by all users around the world.
           </p>
           <div className="flex gap-5 justify-center mx-auto w-full items-stretch">
-            <div className="self-center">a</div>
-            <div className="w-[90%] h-[400px] bg-neutral-100 rounded-lg flex flex-col justify-evenly">
+            <div className="absolute sm:bottom-0 sm:left-[40%] lg:self-center">
+              <button class="bg-white shadow-lg hover:bg-primary text-white font-bold py-2 px-4 rounded-lg flex items-center">
+                <svg
+                  class="h-5 w-5 text-black transform -rotate-90"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 15l7-7 7 7"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div className="w-full md:w-[90%] h-[400px] bg-white shadow-xl rounded-lg flex flex-col justify-evenly">
               <div className="flex flex-col gap-2">
                 <Image
                   className="mx-auto"
@@ -271,10 +282,28 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="self-center">a</div>
+            <div className="absolute sm:bottom-0 sm:right-[40%] lg:self-center">
+              <button class="bg-white shadow-lg hover:bg-primary text-white font-bold py-2 px-4 rounded-lg flex items-center">
+                <svg
+                  class="h-5 w-5 text-black transform rotate-90"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 15l7-7 7 7"
+                  ></path>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
+      <Landingpage />
     </>
   );
 }

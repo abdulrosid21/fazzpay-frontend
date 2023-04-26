@@ -36,7 +36,7 @@ function Navbar() {
       <header className={`${hamburger ? "h-screen" : ""} flex flex-col`}>
         <div className="flex justify-between items-center shadow-md p-4 sm:p-6 xl:px-12">
           <div
-            className="text-primary font-semibold text-lg sm:text-xl md:text-2xl xl:text-3xl cursor-pointer"
+            className="text-primary font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl cursor-pointer my-auto font-nunito"
             onClick={() => router.push("/")}
           >
             Fazzpay
@@ -51,13 +51,13 @@ function Navbar() {
           ) : (
             <div className="hidden sm:flex sm:gap-x-2 xl:gap-x-4">
               <button
-                className="bg-white sm:text-sm xl:text-lg text-primary border-primary shadow border-2 w-24 xl:w-28 py-2 xl:py-3 font-semibold rounded-xl"
+                className="w-24 h-10 bg-transparent rounded-md border-2 border-[#6379F4] text-[#6379F4] font-nunito"
                 onClick={() => router.push("/signin")}
               >
                 Login
               </button>
               <button
-                className="bg-primary sm:text-sm xl:text-lg text-white shadow w-24 xl:w-28 py-2 xl:py-3 font-semibold rounded-xl"
+                className="w-24 h-10 bg-[#6379F4] border-2 border-[#6379F4] rounded-md text-white font-nunito"
                 onClick={() => router.push("/signup")}
               >
                 Register
