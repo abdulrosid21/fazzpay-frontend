@@ -1,6 +1,7 @@
 <h1 align="center">Welcome to Fazzpay-NextJS 👋</h1>
  
 <img src="/public/Fazzpay.png" alt="alt text" width="200" height="100%" align="center">
+<img src="/public/dashboard.png" alt="alt text" width="100%" height="100%" align="center">
 
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
