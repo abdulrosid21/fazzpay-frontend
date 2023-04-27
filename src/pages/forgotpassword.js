@@ -13,7 +13,7 @@ export default function ForgotPassword() {
   const [message, setMessage] = useState("");
   const [form, setForm] = useState({
     email: "",
-    linkDirect: "http://localhost:3000/reset-password",
+    linkDirect: "https://spiffy-donut-f74703.netlify.app/reset-password",
   });
 
   const inputForm = (e) => {
@@ -43,7 +43,7 @@ export default function ForgotPassword() {
     if (isError) {
       setForm({
         email: "",
-        linkDirect: "http://localhost:3000/reset-password",
+        linkDirect: "https://spiffy-donut-f74703.netlify.app/reset-password",
       });
     } else {
       router.push("/signin");
